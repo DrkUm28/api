@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using RestauranteAPIFinal;
 using RestauranteAPIFinal.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Mvc;
 using Newtonsoft.Json;
 
 namespace RestauranteAPIFinal.Controllers
@@ -16,8 +11,11 @@ namespace RestauranteAPIFinal.Controllers
     public class PuestoController : ApiController
     {
 
-        string cadena = "Data Source=DEREK\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
+        string cadena = "Data Source=DESKTOP-7N6N3E8\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
+
+
         // GET: api/Puesto
+        [HttpGet]
         public string  Get()
         {
             using (SqlConnection conexion = new SqlConnection(cadena))
@@ -51,12 +49,15 @@ namespace RestauranteAPIFinal.Controllers
         }
 
         // GET: api/Puesto/5
+        [HttpGet]
+
         public string Get(int id)
         {
             return "value";
         }
 
         // POST: api/Puesto
+        [HttpPost]
         public string Post([FromBody]Puesto puesto)
         {
             using (SqlConnection conexion = new SqlConnection(cadena))
@@ -75,13 +76,14 @@ namespace RestauranteAPIFinal.Controllers
             }
             return "Ok";
         }
-
+        [HttpPut]
         // PUT: api/Puesto/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Puesto/5
+        [HttpDelete]
         public void Delete(int id)
         {
         }

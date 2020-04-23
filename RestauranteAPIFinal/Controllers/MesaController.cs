@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using RestauranteAPIFinal;
 using RestauranteAPIFinal.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Mvc;
 using Newtonsoft.Json;
 
 namespace RestauranteAPIFinal.Controllers
 {
     public class MesaController : ApiController
     {
-        string cadena = "Data Source=DEREK\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
+        string cadena = "Data Source=DESKTOP-7N6N3E8\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
         // GET: api/Mesa
+        [HttpGet]
         public string Get()
         {
             using (SqlConnection conexion = new SqlConnection(cadena))
@@ -28,13 +24,13 @@ namespace RestauranteAPIFinal.Controllers
                 conexion.Open();
                 SqlDataReader reader = comando.ExecuteReader();
 
-                List < Mesa> mesas = new List<Mesa>();
+                List<Mesa> mesas = new List<Mesa>();
 
                 while (reader.Read())
                 {
                     Mesa mesita = new Mesa();
                     mesita.cod_mesa = Int32.Parse(reader["cod_mesa"].ToString());
-                   
+
                     mesita.nombre = reader["nombre"].ToString();
                     mesita.numero = Int32.Parse(reader["numero"].ToString());
                     mesita.cantidadSillas = Int32.Parse(reader["cantidadSillas"].ToString());
@@ -50,12 +46,14 @@ namespace RestauranteAPIFinal.Controllers
         }
 
         // GET: api/Mesa/5
+        [HttpGet]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST: api/Mesa
+        [HttpPost]
         public string Post([FromBody] Mesa mesa)
         {
             using (SqlConnection conexion = new SqlConnection(cadena))
@@ -77,11 +75,13 @@ namespace RestauranteAPIFinal.Controllers
         }
 
         // PUT: api/Mesa/5
+        [HttpPut]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Mesa/5
+        [HttpDelete]
         public void Delete(int id)
         {
         }

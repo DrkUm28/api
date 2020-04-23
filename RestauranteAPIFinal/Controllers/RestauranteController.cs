@@ -12,7 +12,7 @@ namespace RestauranteAPIFinal.Controllers
     public class RestauranteController : ApiController
     {
        
-        string cadena = "Data Source=DEREK\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
+        string cadena = "Data Source=DESKTOP-7N6N3E8\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
 
         // GET: api/Restaurante
         [HttpGet]
