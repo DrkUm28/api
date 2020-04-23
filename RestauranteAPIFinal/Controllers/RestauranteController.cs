@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using RestauranteAPIFinal;
 using RestauranteAPIFinal.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Mvc;
 using Newtonsoft.Json;
-using System.Web.Http.Cors;
+
 
 namespace RestauranteAPIFinal.Controllers
-{
-    [EnableCors(origins: "https://localhost:3000", headers: "*", methods: "*")]
+{    
     public class RestauranteController : ApiController
     {
-        
-
+       
         string cadena = "Data Source=DEREK\\SQLEXPRESS;Initial Catalog=ProyectoServiciosWeb;Integrated Security=True";
 
         // GET: api/Restaurante
+        [HttpGet]
         public string Get()
         {
 
@@ -59,13 +53,14 @@ namespace RestauranteAPIFinal.Controllers
         }
 
         // GET: api/Restaurante/5
+        [HttpGet]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST: api/Restaurante
-        [EnableCors(origins: "https://localhost:3000/agregar-restaurante", headers: "*", methods: "*")]
+        [HttpPost]
         public string Post([FromBody]Restaurante restaurante)
         {
 
@@ -90,11 +85,13 @@ namespace RestauranteAPIFinal.Controllers
         }
 
         // PUT: api/Restaurante/5
+        [HttpPut]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Restaurante/5
+        [HttpDelete]
         public void Delete(int id)
         {
         }

@@ -10,7 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-using System.Web.Http.Cors;
+
 namespace RestauranteAPIFinal.Controllers
 {
     public class DesechableController : ApiController
